@@ -5,6 +5,8 @@
  */
 package Controller.Helper;
 
+import Model.Clientes;
+
 /**
  * Interface que obriga seus filhos a implementar
  * ObterModelo() e limparTela()
@@ -22,4 +24,10 @@ public interface IHelper {
      * Metodo abstrato para herança
      */
     public abstract void limparTela();
+    
+    /**
+     * 
+     * @param cliente 
+     */
+    public abstract void preencherCampos(Clientes cliente);
 }

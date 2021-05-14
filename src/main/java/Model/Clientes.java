@@ -5,6 +5,7 @@
  */
 package Model;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,7 +15,7 @@ import javax.persistence.Id;
  * @author Adauto
  */
 @Entity
-public class Clientes {
+public class Clientes implements Serializable {
     
     @Id
     @GeneratedValue
@@ -22,10 +23,9 @@ public class Clientes {
     private String nome;
     private String email;
 
-    public Clientes(String nome, String email) {
-        this.nome = nome;
-        this.email = email;
+    public Clientes() {
     }
+
 
     public Clientes(int id, String nome, String email) {
         this.id = id;
@@ -59,6 +59,13 @@ public class Clientes {
     public void setEmail(String email) {
         this.email = email;
     }
+    
+    
+    @Override
+    public String toString(){
+        return getNome();
+    }
+    
     
     
 }

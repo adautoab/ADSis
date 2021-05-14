@@ -77,15 +77,23 @@ public class ClientesDAO {
 
     }
 
-    private List<Clientes> retornaListaComBaseNaConsulta(Query query) {
-        List<Clientes> clientes;
+    private ArrayList<Clientes> retornaListaComBaseNaConsulta(Query query) {
+        ArrayList<Clientes> clientes;
         try {
-            clientes = query.getResultList();
+            clientes = (ArrayList) query.getResultList();
         } catch (NoResultException e) {
             clientes = new ArrayList<>();
         }
 
         return clientes;
+    }
+    
+    public ArrayList<Clientes> ListaDePesquisa(String pesquisar){
+
+        String jpql = "from Clientes c where lower(c.nome) like lower('" + pesquisar + "%') order by c.nome";
+        Query query = em.createQuery(jpql);
+        return retornaListaComBaseNaConsulta(query);
+
     }
     
     public void cancel(){
