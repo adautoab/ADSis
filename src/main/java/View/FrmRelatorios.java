@@ -5,17 +5,36 @@
  */
 package View;
 
+import Controller.RelatoriosController;
+import Model.Anuncio;
+import java.util.Vector;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author User
  */
 public class FrmRelatorios extends javax.swing.JFrame {
 
+    private final RelatoriosController controller;
+
     /**
      * Creates new form FrmRelatorios
      */
     public FrmRelatorios() {
         initComponents();
+        this.controller = new RelatoriosController(this);
+        this.controller.atualizarTabela();
+        jTableAnuncios.getSelectionModel().addListSelectionListener((ListSelectionEvent e) -> {
+            //I want something to happen before the row change is triggered on the UI.
+            this.controller.calcular();
+            JOptionPane.showMessageDialog(jTableAnuncios, "Row changed!");
+        });        
     }
 
     /**
@@ -28,44 +47,120 @@ public class FrmRelatorios extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableAnuncios = new javax.swing.JTable();
+        jLabelValorTotalInvestido = new javax.swing.JLabel();
+        jTextFieldValorTotalInvestido = new javax.swing.JTextField();
+        jLabelQtdeMaxVisualizacoes = new javax.swing.JLabel();
+        jTextFieldQtdeMaxVisualizacoes = new javax.swing.JTextField();
+        jLabelQtdeMaxCliques = new javax.swing.JLabel();
+        jLabelQtdeMaxCompartilhamentos = new javax.swing.JLabel();
+        jTextFieldQtdeMaxCliques = new javax.swing.JTextField();
+        jTextFieldQtdeMaxCompatilhamentos = new javax.swing.JTextField();
+        jTextFieldPesquisaPorCliente = new javax.swing.JTextField();
+        jLabelPesquisaPorCliente = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Relatórios");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableAnuncios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Nome", "Cliente", "Data Início", "Data Térmico"
+                "ID", "Nome do Anúncio", "Cliente", "Data Início", "Data Térmico", "Valor por dia"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jTableAnuncios.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.setViewportView(jTableAnuncios);
+
+        jLabelValorTotalInvestido.setText("Valor total investido:");
+
+        jTextFieldValorTotalInvestido.setEditable(false);
+
+        jLabelQtdeMaxVisualizacoes.setText("Quantidade máxima de visualizações:");
+
+        jTextFieldQtdeMaxVisualizacoes.setEditable(false);
+
+        jLabelQtdeMaxCliques.setText("Quantidade máxima de cliques:");
+
+        jLabelQtdeMaxCompartilhamentos.setText("Quantidade máxima de compartilhamentos:");
+
+        jTextFieldQtdeMaxCliques.setEditable(false);
+
+        jTextFieldQtdeMaxCompatilhamentos.setEditable(false);
+
+        jLabelPesquisaPorCliente.setText("Pesquisa por cliente:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 627, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelQtdeMaxCliques)
+                                    .addComponent(jLabelQtdeMaxCompartilhamentos))
+                                .addGap(14, 14, 14)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldQtdeMaxCliques)
+                                    .addComponent(jTextFieldQtdeMaxCompatilhamentos)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelQtdeMaxVisualizacoes)
+                                    .addComponent(jLabelValorTotalInvestido))
+                                .addGap(42, 42, 42)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextFieldQtdeMaxVisualizacoes)
+                                    .addComponent(jTextFieldValorTotalInvestido, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabelPesquisaPorCliente)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextFieldPesquisaPorCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(236, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldPesquisaPorCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelPesquisaPorCliente))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelValorTotalInvestido)
+                    .addComponent(jTextFieldValorTotalInvestido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelQtdeMaxVisualizacoes)
+                    .addComponent(jTextFieldQtdeMaxVisualizacoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelQtdeMaxCliques)
+                    .addComponent(jTextFieldQtdeMaxCliques, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelQtdeMaxCompartilhamentos)
+                    .addComponent(jTextFieldQtdeMaxCompatilhamentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         pack();
@@ -108,7 +203,66 @@ public class FrmRelatorios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabelPesquisaPorCliente;
+    private javax.swing.JLabel jLabelQtdeMaxCliques;
+    private javax.swing.JLabel jLabelQtdeMaxCompartilhamentos;
+    private javax.swing.JLabel jLabelQtdeMaxVisualizacoes;
+    private javax.swing.JLabel jLabelValorTotalInvestido;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableAnuncios;
+    private javax.swing.JTextField jTextFieldPesquisaPorCliente;
+    private javax.swing.JTextField jTextFieldQtdeMaxCliques;
+    private javax.swing.JTextField jTextFieldQtdeMaxCompatilhamentos;
+    private javax.swing.JTextField jTextFieldQtdeMaxVisualizacoes;
+    private javax.swing.JTextField jTextFieldValorTotalInvestido;
     // End of variables declaration//GEN-END:variables
+
+    public JTable getjTableAnuncios() {
+        return jTableAnuncios;
+    }
+
+    public void setjTableAnuncios(JTable jTableAnuncios) {
+        this.jTableAnuncios = jTableAnuncios;
+    }
+
+    public JTextField getjTextFieldPesquisaPorCliente() {
+        return jTextFieldPesquisaPorCliente;
+    }
+
+    public void setjTextFieldPesquisaPorCliente(JTextField jTextFieldPesquisaPorCliente) {
+        this.jTextFieldPesquisaPorCliente = jTextFieldPesquisaPorCliente;
+    }
+
+    public JTextField getjTextFieldQtdeMaxCliques() {
+        return jTextFieldQtdeMaxCliques;
+    }
+
+    public void setjTextFieldQtdeMaxCliques(JTextField jTextFieldQtdeMaxCliques) {
+        this.jTextFieldQtdeMaxCliques = jTextFieldQtdeMaxCliques;
+    }
+
+    public JTextField getjTextFieldQtdeMaxCompatilhamentos() {
+        return jTextFieldQtdeMaxCompatilhamentos;
+    }
+
+    public void setjTextFieldQtdeMaxCompatilhamentos(JTextField jTextFieldQtdeMaxCompatilhamentos) {
+        this.jTextFieldQtdeMaxCompatilhamentos = jTextFieldQtdeMaxCompatilhamentos;
+    }
+
+    public JTextField getjTextFieldQtdeMaxVisualizacoes() {
+        return jTextFieldQtdeMaxVisualizacoes;
+    }
+
+    public void setjTextFieldQtdeMaxVisualizacoes(JTextField jTextFieldQtdeMaxVisualizacoes) {
+        this.jTextFieldQtdeMaxVisualizacoes = jTextFieldQtdeMaxVisualizacoes;
+    }
+
+    public JTextField getjTextFieldValorTotalInvestido() {
+        return jTextFieldValorTotalInvestido;
+    }
+
+    public void setjTextFieldValorTotalInvestido(JTextField jTextFieldValorTotalInvestido) {
+        this.jTextFieldValorTotalInvestido = jTextFieldValorTotalInvestido;
+    }
+
 }
