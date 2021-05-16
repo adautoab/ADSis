@@ -37,7 +37,7 @@
                               </Group>
                               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextFieldQtdeMaxCliques" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldQtdeMaxCliques" pref="93" max="32767" attributes="0"/>
                                   <Component id="jTextFieldQtdeMaxCompatilhamentos" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -45,11 +45,13 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabelQtdeMaxVisualizacoes" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabelValorTotalInvestido" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelDiasTotais" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jTextFieldQtdeMaxVisualizacoes" max="32767" attributes="0"/>
-                                  <Component id="jTextFieldValorTotalInvestido" min="-2" pref="93" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldValorTotalInvestido" pref="93" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldDiasTotais" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -75,7 +77,12 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="120" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabelDiasTotais" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldDiasTotais" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelValorTotalInvestido" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTextFieldValorTotalInvestido" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -95,7 +102,7 @@
                   <Component id="jLabelQtdeMaxCompartilhamentos" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTextFieldQtdeMaxCompatilhamentos" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="67" max="32767" attributes="0"/>
+              <EmptySpace pref="64" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -133,6 +140,7 @@
     <Component class="javax.swing.JTextField" name="jTextFieldValorTotalInvestido">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
+        <Property name="horizontalAlignment" type="int" value="0"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelQtdeMaxVisualizacoes">
@@ -143,6 +151,7 @@
     <Component class="javax.swing.JTextField" name="jTextFieldQtdeMaxVisualizacoes">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
+        <Property name="horizontalAlignment" type="int" value="0"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelQtdeMaxCliques">
@@ -158,11 +167,13 @@
     <Component class="javax.swing.JTextField" name="jTextFieldQtdeMaxCliques">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
+        <Property name="horizontalAlignment" type="int" value="0"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldQtdeMaxCompatilhamentos">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
+        <Property name="horizontalAlignment" type="int" value="0"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldPesquisaPorCliente">
@@ -170,6 +181,17 @@
     <Component class="javax.swing.JLabel" name="jLabelPesquisaPorCliente">
       <Properties>
         <Property name="text" type="java.lang.String" value="Pesquisa por cliente:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelDiasTotais">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Dias totais do an&#xfa;ncio:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldDiasTotais">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+        <Property name="horizontalAlignment" type="int" value="0"/>
       </Properties>
     </Component>
   </SubComponents>

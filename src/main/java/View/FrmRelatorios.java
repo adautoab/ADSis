@@ -6,14 +6,11 @@
 package View;
 
 import Controller.RelatoriosController;
-import Model.Anuncio;
-import java.util.Vector;
+
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -33,7 +30,6 @@ public class FrmRelatorios extends javax.swing.JFrame {
         jTableAnuncios.getSelectionModel().addListSelectionListener((ListSelectionEvent e) -> {
             //I want something to happen before the row change is triggered on the UI.
             this.controller.calcular();
-            JOptionPane.showMessageDialog(jTableAnuncios, "Row changed!");
         });        
     }
 
@@ -58,6 +54,8 @@ public class FrmRelatorios extends javax.swing.JFrame {
         jTextFieldQtdeMaxCompatilhamentos = new javax.swing.JTextField();
         jTextFieldPesquisaPorCliente = new javax.swing.JTextField();
         jLabelPesquisaPorCliente = new javax.swing.JLabel();
+        jLabelDiasTotais = new javax.swing.JLabel();
+        jTextFieldDiasTotais = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Relatórios");
@@ -87,20 +85,29 @@ public class FrmRelatorios extends javax.swing.JFrame {
         jLabelValorTotalInvestido.setText("Valor total investido:");
 
         jTextFieldValorTotalInvestido.setEditable(false);
+        jTextFieldValorTotalInvestido.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabelQtdeMaxVisualizacoes.setText("Quantidade máxima de visualizações:");
 
         jTextFieldQtdeMaxVisualizacoes.setEditable(false);
+        jTextFieldQtdeMaxVisualizacoes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabelQtdeMaxCliques.setText("Quantidade máxima de cliques:");
 
         jLabelQtdeMaxCompartilhamentos.setText("Quantidade máxima de compartilhamentos:");
 
         jTextFieldQtdeMaxCliques.setEditable(false);
+        jTextFieldQtdeMaxCliques.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jTextFieldQtdeMaxCompatilhamentos.setEditable(false);
+        jTextFieldQtdeMaxCompatilhamentos.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabelPesquisaPorCliente.setText("Pesquisa por cliente:");
+
+        jLabelDiasTotais.setText("Dias totais do anúncio:");
+
+        jTextFieldDiasTotais.setEditable(false);
+        jTextFieldDiasTotais.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -118,16 +125,18 @@ public class FrmRelatorios extends javax.swing.JFrame {
                                     .addComponent(jLabelQtdeMaxCompartilhamentos))
                                 .addGap(14, 14, 14)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldQtdeMaxCliques)
+                                    .addComponent(jTextFieldQtdeMaxCliques, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
                                     .addComponent(jTextFieldQtdeMaxCompatilhamentos)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelQtdeMaxVisualizacoes)
-                                    .addComponent(jLabelValorTotalInvestido))
+                                    .addComponent(jLabelValorTotalInvestido)
+                                    .addComponent(jLabelDiasTotais))
                                 .addGap(42, 42, 42)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jTextFieldQtdeMaxVisualizacoes)
-                                    .addComponent(jTextFieldValorTotalInvestido, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(jTextFieldValorTotalInvestido, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldDiasTotais)))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabelPesquisaPorCliente)
@@ -144,7 +153,11 @@ public class FrmRelatorios extends javax.swing.JFrame {
                     .addComponent(jLabelPesquisaPorCliente))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelDiasTotais)
+                    .addComponent(jTextFieldDiasTotais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelValorTotalInvestido)
                     .addComponent(jTextFieldValorTotalInvestido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -160,7 +173,7 @@ public class FrmRelatorios extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelQtdeMaxCompartilhamentos)
                     .addComponent(jTextFieldQtdeMaxCompatilhamentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         pack();
@@ -203,6 +216,7 @@ public class FrmRelatorios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabelDiasTotais;
     private javax.swing.JLabel jLabelPesquisaPorCliente;
     private javax.swing.JLabel jLabelQtdeMaxCliques;
     private javax.swing.JLabel jLabelQtdeMaxCompartilhamentos;
@@ -210,6 +224,7 @@ public class FrmRelatorios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelValorTotalInvestido;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableAnuncios;
+    private javax.swing.JTextField jTextFieldDiasTotais;
     private javax.swing.JTextField jTextFieldPesquisaPorCliente;
     private javax.swing.JTextField jTextFieldQtdeMaxCliques;
     private javax.swing.JTextField jTextFieldQtdeMaxCompatilhamentos;
@@ -265,4 +280,14 @@ public class FrmRelatorios extends javax.swing.JFrame {
         this.jTextFieldValorTotalInvestido = jTextFieldValorTotalInvestido;
     }
 
+    public JTextField getjTextFieldDiasTotais() {
+        return jTextFieldDiasTotais;
+    }
+
+    public void setjTextFieldDiasTotais(JTextField jTextFieldDiasTotais) {
+        this.jTextFieldDiasTotais = jTextFieldDiasTotais;
+    }
+
+    
+    
 }

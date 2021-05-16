@@ -51,8 +51,8 @@ public class AnunciosDAO {
         em.remove(anuncio);
     }
 
-    public Anuncio selectPorId(Anuncio anuncio) {
-        return em.find(Anuncio.class, anuncio);
+    public Anuncio selectPorId(int id) {
+        return em.find(Anuncio.class, id);
     }
 
     /**

@@ -54,4 +54,12 @@ public class RelatoriosHelper {
 
     }
 
+    public void exibeResultado(int dias, Double valorTotal, int cliques, int compartilhamentos, int visualizacoes) {
+        view.getjTextFieldDiasTotais().setText(dias+"");
+        view.getjTextFieldValorTotalInvestido().setText("R$ "+valorTotal+"");
+        view.getjTextFieldQtdeMaxCliques().setText(cliques+"");
+        view.getjTextFieldQtdeMaxCompatilhamentos().setText(compartilhamentos+"");
+        view.getjTextFieldQtdeMaxVisualizacoes().setText(visualizacoes+"");
+    }
+
 }
