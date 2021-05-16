@@ -9,7 +9,7 @@ import View.FrmClientes;
 import Controller.Helper.ClientesHelper;
 import DAO.ClientesDAO;
 import DAO.JPAUtil;
-import Model.Clientes;
+import Model.Cliente;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.swing.DefaultListModel;
@@ -28,11 +28,11 @@ public class ClientesController {
     }
 
     public void Salvar() {
-        Clientes cliente_a_salvar = this.helper.obterModelo();
+        Cliente cliente_a_salvar = this.helper.obterModelo();
 
         EntityManager em = new JPAUtil().getEntityManager();
         em.getTransaction().begin();
-        Clientes cliente_salvo;
+        Cliente cliente_salvo;
         cliente_salvo = new ClientesDAO(em).insertOrUpdate(cliente_a_salvar);
         em.getTransaction().commit();
         em.close();
@@ -44,12 +44,12 @@ public class ClientesController {
 
         EntityManager em = new JPAUtil().getEntityManager();
         em.getTransaction().begin();
-        List<Clientes> lista_clientes = new ClientesDAO(em).ListaDePesquisa(this.helper.ObterString());
+        List<Cliente> lista_clientes = new ClientesDAO(em).ListaDePesquisa(this.helper.ObterString());
         em.getTransaction().commit();
         em.close();
         JList lista_string = new JList();
         DefaultListModel lista = new DefaultListModel();
-        for (Clientes c : lista_clientes){
+        for (Cliente c : lista_clientes){
             lista.addElement(c);
         }
         lista_string.setModel(lista);
@@ -62,10 +62,14 @@ public class ClientesController {
         this.helper.OcultarLista();
     }
 
-    public void PreencherCampos(Clientes cliente) {
+    public void PreencherCampos(Cliente cliente) {
         System.out.println(cliente);
         this.helper.preencherCampos(cliente);
         this.helper.OcultarLista();
+    }
+
+    public void NovoCliente() {
+        this.helper.limparTela();
     }
 
 

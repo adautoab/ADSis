@@ -6,7 +6,7 @@
 package View;
 
 import Controller.ClientesController;
-import Model.Clientes;
+import Model.Cliente;
 import javax.swing.JList;
 import javax.swing.JTextField;
 
@@ -39,7 +39,7 @@ public class FrmClientes extends javax.swing.JFrame {
 
         jPanelBotoes = new javax.swing.JPanel();
         jButtonSalvar = new javax.swing.JButton();
-        jButtonCancelar = new javax.swing.JButton();
+        jButtonNovo = new javax.swing.JButton();
         jButtonExcluir = new javax.swing.JButton();
         jLabelID = new javax.swing.JLabel();
         jLabelNome = new javax.swing.JLabel();
@@ -61,7 +61,12 @@ public class FrmClientes extends javax.swing.JFrame {
             }
         });
 
-        jButtonCancelar.setText("Cancelar");
+        jButtonNovo.setText("Novo");
+        jButtonNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNovoActionPerformed(evt);
+            }
+        });
 
         jButtonExcluir.setText("Excluir");
 
@@ -71,12 +76,12 @@ public class FrmClientes extends javax.swing.JFrame {
             jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBotoesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButtonSalvar)
+                .addComponent(jButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButtonCancelar)
-                .addGap(18, 18, 18)
+                .addComponent(jButtonNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonExcluir)
-                .addContainerGap(195, Short.MAX_VALUE))
+                .addContainerGap(213, Short.MAX_VALUE))
         );
         jPanelBotoesLayout.setVerticalGroup(
             jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,7 +89,7 @@ public class FrmClientes extends javax.swing.JFrame {
                 .addContainerGap(40, Short.MAX_VALUE)
                 .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSalvar)
-                    .addComponent(jButtonCancelar)
+                    .addComponent(jButtonNovo)
                     .addComponent(jButtonExcluir))
                 .addContainerGap())
         );
@@ -205,8 +210,12 @@ public class FrmClientes extends javax.swing.JFrame {
         int Linha;
         Linha = getjListPesquisa().getSelectedIndex();
         Object sel = getjListPesquisa().getModel().getElementAt(Linha);
-        this.controller.PreencherCampos((Clientes)sel);
+        this.controller.PreencherCampos((Cliente)sel);
     }//GEN-LAST:event_jListPesquisaMousePressed
+
+    private void jButtonNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoActionPerformed
+        this.controller.NovoCliente();
+    }//GEN-LAST:event_jButtonNovoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -245,8 +254,8 @@ public class FrmClientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonExcluir;
+    private javax.swing.JButton jButtonNovo;
     private javax.swing.JButton jButtonSalvar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelEmail;

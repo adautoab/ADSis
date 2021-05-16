@@ -7,7 +7,7 @@ package View;
 
 import DAO.ClientesDAO;
 import DAO.JPAUtil;
-import Model.Clientes;
+import Model.Cliente;
 import java.util.List;
 import javax.persistence.EntityManager;
 
@@ -21,7 +21,7 @@ public class testePesquisa {
         
         EntityManager em = new JPAUtil().getEntityManager();
         em.getTransaction().begin();
-                    List<Clientes> clientes = new ClientesDAO(em).ListaDePesquisa("Ad");
+                    List<Cliente> clientes = new ClientesDAO(em).ListaDePesquisa("Ad");
         em.getTransaction().commit();
         em.close();
         

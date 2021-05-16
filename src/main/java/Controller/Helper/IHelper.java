@@ -5,7 +5,7 @@
  */
 package Controller.Helper;
 
-import Model.Clientes;
+import Model.Cliente;
 
 /**
  * Interface que obriga seus filhos a implementar
@@ -25,9 +25,5 @@ public interface IHelper {
      */
     public abstract void limparTela();
     
-    /**
-     * 
-     * @param cliente 
-     */
-    public abstract void preencherCampos(Clientes cliente);
+
 }

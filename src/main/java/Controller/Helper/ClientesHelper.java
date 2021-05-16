@@ -6,7 +6,7 @@
 package Controller.Helper;
 
 import View.FrmClientes;
-import Model.Clientes;
+import Model.Cliente;
 import javax.swing.DefaultListModel;
 
 
@@ -27,23 +27,31 @@ public class ClientesHelper implements IHelper {
     
 
     @Override
-    public Clientes obterModelo() {
+    public Cliente obterModelo() {
+        Integer id;
+        if (view.getjTextFieldID().getText().equals("")){
+            id = 0;
+        }
+        else
+            id = Integer.parseInt(view.getjTextFieldID().getText());
+        
         String nome = view.getjTextFieldNome().getText();
         String email = view.getjTextFieldEmail().getText();
         
-        Clientes cliente = new Clientes(0,nome,email);
+        Cliente cliente;
+        cliente = new Cliente(id,nome,email);
         return cliente;
     }
 
     @Override
     public void limparTela() {
+        view.getjTextFieldPesquisa().setText("");
         view.getjTextFieldID().setText("");
         view.getjTextFieldNome().setText("");
         view.getjTextFieldEmail().setText("");
     }
 
-    @Override
-    public void preencherCampos(Clientes cliente) {
+    public void preencherCampos(Cliente cliente) {
         view.getjTextFieldID().setText(cliente.getId()+"");
         view.getjTextFieldNome().setText(cliente.getNome());
         view.getjTextFieldEmail().setText(cliente.getEmail());

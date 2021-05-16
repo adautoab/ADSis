@@ -6,28 +6,37 @@
 package Model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 /**
  * Classe clientes usada para instanciar clientes
  * @author Adauto
  */
 @Entity
-public class Clientes implements Serializable {
+public class Cliente implements Serializable{
     
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nome;
     private String email;
+    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente")
+    private List<Anuncio> anuncios;
 
-    public Clientes() {
+    public Cliente() {
     }
 
 
-    public Clientes(int id, String nome, String email) {
+    public Cliente(int id, String nome, String email) {
         this.id = id;
         this.nome = nome;
         this.email = email;
