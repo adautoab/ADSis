@@ -6,8 +6,10 @@
 package View;
 
 import Controller.AnunciosController;
+import Model.Anuncio;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
+import javax.swing.JList;
 import javax.swing.JTextField;
 
 /**
@@ -25,6 +27,7 @@ public class FrmAnuncios extends javax.swing.JFrame {
         initComponents();
         this.controller = new AnunciosController(this);
         this.controller.preencherClientes();
+        this.jListPesquisa.setVisible(false);
     }
 
     /**
@@ -52,6 +55,9 @@ public class FrmAnuncios extends javax.swing.JFrame {
         jComboBoxCliente = new javax.swing.JComboBox<>();
         jFormattedTextFieldDataInicio = new javax.swing.JFormattedTextField();
         jFormattedTextFieldDataTermino = new javax.swing.JFormattedTextField();
+        jTextFieldPesquisa = new javax.swing.JTextField();
+        jLabelPesquisa = new javax.swing.JLabel();
+        jListPesquisa = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Anúcnios");
@@ -97,7 +103,7 @@ public class FrmAnuncios extends javax.swing.JFrame {
                 .addComponent(jButtonNovo)
                 .addGap(67, 67, 67)
                 .addComponent(jButtonExcluir)
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
         jPanelBotoesLayout.setVerticalGroup(
             jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,6 +129,26 @@ public class FrmAnuncios extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        jTextFieldPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPesquisaActionPerformed(evt);
+            }
+        });
+        jTextFieldPesquisa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldPesquisaKeyReleased(evt);
+            }
+        });
+
+        jLabelPesquisa.setText("Pesquisar anúncio");
+
+        jListPesquisa.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        jListPesquisa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jListPesquisaMousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -131,38 +157,53 @@ public class FrmAnuncios extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanelBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jTextFieldNome, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGap(1, 1, 1)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabelDataInicio)
+                                                .addComponent(jFormattedTextFieldDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGap(72, 72, 72)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabelDataTermino)
+                                                .addComponent(jFormattedTextFieldDataTermino, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jLabelCliente)
+                                        .addComponent(jComboBoxCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(jTextFieldInvestimento, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabelInvestimento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                            .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelNomeAnuncio)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelPesquisa)
+                                    .addComponent(jLabelId))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabelNomeAnuncio)
-                                    .addComponent(jLabelId)
-                                    .addComponent(jLabelCliente)
-                                    .addComponent(jTextFieldNome)
-                                    .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBoxCliente, 0, 291, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelDataInicio)
-                                    .addComponent(jLabelInvestimento)
-                                    .addComponent(jTextFieldInvestimento, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jFormattedTextFieldDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(72, 72, 72)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelDataTermino)
-                                    .addComponent(jFormattedTextFieldDataTermino, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jListPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jLabelId)
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelPesquisa)
+                    .addComponent(jTextFieldPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelId)
+                    .addComponent(jListPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelNomeAnuncio)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -170,7 +211,7 @@ public class FrmAnuncios extends javax.swing.JFrame {
                 .addComponent(jLabelCliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBoxCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelDataInicio)
                     .addComponent(jLabelDataTermino))
@@ -178,11 +219,11 @@ public class FrmAnuncios extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jFormattedTextFieldDataInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jFormattedTextFieldDataTermino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                .addGap(18, 18, 18)
                 .addComponent(jLabelInvestimento)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldInvestimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanelBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -197,6 +238,21 @@ public class FrmAnuncios extends javax.swing.JFrame {
     private void jButtonNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoActionPerformed
         this.controller.NovoAnuncio();
     }//GEN-LAST:event_jButtonNovoActionPerformed
+
+    private void jTextFieldPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPesquisaActionPerformed
+        this.controller.OcultarLista();
+    }//GEN-LAST:event_jTextFieldPesquisaActionPerformed
+
+    private void jTextFieldPesquisaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPesquisaKeyReleased
+        this.controller.PesquisarCliente();
+    }//GEN-LAST:event_jTextFieldPesquisaKeyReleased
+
+    private void jListPesquisaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListPesquisaMousePressed
+        int Linha;
+        Linha = getjListPesquisa().getSelectedIndex();
+        Object sel = getjListPesquisa().getModel().getElementAt(Linha);
+        this.controller.PreencherCampos((Anuncio)sel);
+    }//GEN-LAST:event_jListPesquisaMousePressed
 
     /**
      * @param args the command line arguments
@@ -247,10 +303,13 @@ public class FrmAnuncios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelId;
     private javax.swing.JLabel jLabelInvestimento;
     private javax.swing.JLabel jLabelNomeAnuncio;
+    private javax.swing.JLabel jLabelPesquisa;
+    private javax.swing.JList<String> jListPesquisa;
     private javax.swing.JPanel jPanelBotoes;
     private javax.swing.JTextField jTextFieldID;
     private javax.swing.JTextField jTextFieldInvestimento;
     private javax.swing.JTextField jTextFieldNome;
+    private javax.swing.JTextField jTextFieldPesquisa;
     // End of variables declaration//GEN-END:variables
 
     public JComboBox<String> getjComboBoxCliente() {
@@ -299,6 +358,22 @@ public class FrmAnuncios extends javax.swing.JFrame {
 
     public void setjTextFieldNome(JTextField jTextFieldNome) {
         this.jTextFieldNome = jTextFieldNome;
+    }
+
+    public JList<String> getjListPesquisa() {
+        return jListPesquisa;
+    }
+
+    public void setjListPesquisa(JList<String> jListPesquisa) {
+        this.jListPesquisa = jListPesquisa;
+    }
+
+    public JTextField getjTextFieldPesquisa() {
+        return jTextFieldPesquisa;
+    }
+
+    public void setjTextFieldPesquisa(JTextField jTextFieldPesquisa) {
+        this.jTextFieldPesquisa = jTextFieldPesquisa;
     }
 
     

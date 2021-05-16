@@ -27,49 +27,71 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanelBotoes" alignment="0" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jLabelNomeAnuncio" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelId" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelCliente" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldNome" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextFieldID" alignment="0" min="-2" pref="57" max="-2" attributes="0"/>
-                                  <Component id="jComboBoxCliente" alignment="0" pref="291" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="jTextFieldNome" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabelDataInicio" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jFormattedTextFieldDataInicio" min="-2" pref="102" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabelDataTermino" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jFormattedTextFieldDataTermino" min="-2" pref="106" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Component id="jLabelCliente" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jComboBoxCliente" alignment="0" min="-2" pref="287" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="jTextFieldInvestimento" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jLabelInvestimento" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                           </Group>
+                          <Component id="jTextFieldID" alignment="0" min="-2" pref="57" max="-2" attributes="0"/>
+                          <Component id="jLabelNomeAnuncio" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabelDataInicio" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelInvestimento" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldInvestimento" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
-                                  <Component id="jFormattedTextFieldDataInicio" min="-2" pref="102" max="-2" attributes="0"/>
+                                  <Component id="jLabelPesquisa" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelId" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabelDataTermino" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jFormattedTextFieldDataTermino" min="-2" pref="106" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jListPesquisa" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldPesquisa" pref="217" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-              <Component id="jLabelId" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabelPesquisa" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldPesquisa" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jLabelId" min="-2" max="-2" attributes="0"/>
+                  <Component id="jListPesquisa" min="-2" pref="80" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jTextFieldID" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabelNomeAnuncio" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jTextFieldNome" min="-2" max="-2" attributes="0"/>
@@ -77,7 +99,7 @@
               <Component id="jLabelCliente" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jComboBoxCliente" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelDataInicio" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelDataTermino" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -87,11 +109,11 @@
                   <Component id="jFormattedTextFieldDataInicio" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jFormattedTextFieldDataTermino" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabelInvestimento" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jTextFieldInvestimento" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="9" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jPanelBotoes" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -149,7 +171,7 @@
                   <Component id="jButtonNovo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                   <Component id="jButtonExcluir" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="156" max="32767" attributes="0"/>
+                  <EmptySpace pref="141" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -198,6 +220,7 @@
         </Property>
       </Properties>
       <AuxValues>
+        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="FrmAnuncios_jComboBoxCliente"/>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
@@ -215,6 +238,37 @@
           <Format format="##/##/####" subtype="-1" type="5"/>
         </Property>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldPesquisa">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldPesquisaActionPerformed"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldPesquisaKeyReleased"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelPesquisa">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Pesquisar an&#xfa;ncio"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JList" name="jListPesquisa">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder>
+              <Color PropertyName="color" blue="cc" green="cc" red="cc" type="rgb"/>
+            </LineBorder>
+          </Border>
+        </Property>
+        <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jListPesquisaMousePressed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

@@ -112,5 +112,9 @@ public class Anuncio implements Serializable {
         this.investimento = investimento;
     }
 
-  
+    @Override
+    public String toString(){
+        return getNome();
+    }  
+    
 }

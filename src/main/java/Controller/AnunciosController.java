@@ -14,6 +14,8 @@ import Model.Cliente;
 import View.FrmAnuncios;
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
 
 /**
  *
@@ -45,6 +47,7 @@ public class AnunciosController {
 
     public void NovoAnuncio() {
         this.helper.limparTela();
+        preencherClientes();
     }
 
     public void preencherClientes() {
@@ -68,6 +71,34 @@ public class AnunciosController {
          */
         helper.preencherClientes(clientes);
        
+    }
+
+    public void OcultarLista() {
+        this.helper.OcultarLista();
+    }
+
+    public void PesquisarCliente() {
+
+        EntityManager em = new JPAUtil().getEntityManager();
+        em.getTransaction().begin();
+        List<Anuncio> lista_anuncios = new AnunciosDAO(em).ListaDePesquisa(this.helper.ObterString());
+        em.getTransaction().commit();
+        em.close();
+        JList lista_string = new JList();
+        DefaultListModel lista = new DefaultListModel();
+        for (Anuncio a : lista_anuncios){
+            lista.addElement(a);
+        }
+        lista_string.setModel(lista);
+        this.helper.preencherListField(lista);
+        this.helper.mostrarJList();        
+        
+    }
+
+    public void PreencherCampos(Anuncio anuncio) {
+        System.out.println(anuncio);
+        this.helper.preencherCampos(anuncio);
+        this.helper.OcultarLista();       
     }
     
 }

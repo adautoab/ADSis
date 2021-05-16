@@ -8,6 +8,7 @@ package Controller;
 import View.FrmAnuncios;
 import View.FrmClientes;
 import View.FrmPrincipal;
+import View.FrmRelatorios;
 
 /**
  *
@@ -33,7 +34,8 @@ public class PrincipalController {
     }
 
     public void navegarRelatorios() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        FrmRelatorios frmRelatorios = new FrmRelatorios();
+        frmRelatorios.setVisible(true);
     }
     
     

@@ -8,8 +8,10 @@ package Controller.Helper;
 import Model.Anuncio;
 import Model.Cliente;
 import View.FrmAnuncios;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -41,14 +43,12 @@ public class AnunciosHelper implements IHelper {
         Double valorInvestimento;
         valorInvestimento = Double.parseDouble(view.getjTextFieldInvestimento().getText());
 
-        
         System.out.println(id);
         System.out.println(cliente.getNome());
         System.out.println(dataInicio);
         System.out.println(dataTermino);
         System.out.println(valorInvestimento);
-        
-        
+
         Anuncio anuncio;
         anuncio = new Anuncio(id, nome, cliente, dataInicio, dataTermino, valorInvestimento);
         return anuncio;
@@ -61,12 +61,17 @@ public class AnunciosHelper implements IHelper {
         this.view.getjFormattedTextFieldDataInicio().setText("");
         this.view.getjFormattedTextFieldDataTermino().setText("");
         this.view.getjTextFieldInvestimento().setText("");
+ 
     }
 
     public void preencherCampos(Anuncio anuncio) {
         view.getjTextFieldID().setText(anuncio.getId() + "");
         view.getjTextFieldNome().setText(anuncio.getNome());
         view.getjComboBoxCliente().getModel().setSelectedItem(anuncio.getCliente().getNome());
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        view.getjFormattedTextFieldDataInicio().setText(sdf.format(anuncio.getDataInicio()));
+        view.getjFormattedTextFieldDataTermino().setText(sdf.format(anuncio.getDataFim()));
         view.getjTextFieldInvestimento().setText(anuncio.getInvestimento() + "");
     }
 
@@ -83,4 +88,25 @@ public class AnunciosHelper implements IHelper {
 
     }
 
+    public void OcultarLista() {
+        this.view.getjListPesquisa().setVisible(false);
+        Enter = 1;
+    }
+
+    public String ObterString() {
+        return this.view.getjTextFieldPesquisa().getText();
+
+    }
+
+    public void preencherListField(DefaultListModel lista) {
+        if (Enter == 0) {
+            this.view.getjListPesquisa().setModel(lista);
+        } else {
+            Enter = 0;
+        }
+    }
+
+    public void mostrarJList() {
+        this.view.getjListPesquisa().setVisible(true);
+    }
 }

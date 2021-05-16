@@ -62,9 +62,9 @@ public class ClientesHelper implements IHelper {
         return this.view.getjTextFieldPesquisa().getText();
     }
 
-    public void preencherListField(DefaultListModel lista_string) {
+    public void preencherListField(DefaultListModel lista) {
         if (Enter == 0)
-            this.view.getjListPesquisa().setModel(lista_string);
+            this.view.getjListPesquisa().setModel(lista);
         else
             Enter = 0;
         

@@ -39,6 +39,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema de Gerenciamento de Anúncios");
+        setResizable(false);
 
         jToggleButton1.setText("Clientes");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
