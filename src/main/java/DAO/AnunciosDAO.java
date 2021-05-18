@@ -79,7 +79,10 @@ public class AnunciosDAO {
     
     public ArrayList<Anuncio> ListaDePesquisa(String pesquisar){
 
-        String jpql = "from Anuncio a where lower(a.nome) like lower('" + pesquisar + "%') order by a.nome";
+        String jpql = "SELECT a FROM Anuncio a "
+                + "WHERE lower(a.nome) "
+                + "like lower('" + pesquisar + "%') "
+                + " order by a.nome";
         Query query = em.createQuery(jpql);
         return retornaListaComBaseNaConsulta(query);
 

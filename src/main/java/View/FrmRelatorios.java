@@ -102,6 +102,15 @@ public class FrmRelatorios extends javax.swing.JFrame {
         jTextFieldQtdeMaxCompatilhamentos.setEditable(false);
         jTextFieldQtdeMaxCompatilhamentos.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
+        jTextFieldPesquisaPorCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldPesquisaPorClienteKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldPesquisaPorClienteKeyReleased(evt);
+            }
+        });
+
         jLabelPesquisaPorCliente.setText("Pesquisa por cliente:");
 
         jLabelDiasTotais.setText("Dias totais do anúncio:");
@@ -179,6 +188,14 @@ public class FrmRelatorios extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextFieldPesquisaPorClienteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPesquisaPorClienteKeyReleased
+        this.controller.PesquisarPorCliente();
+    }//GEN-LAST:event_jTextFieldPesquisaPorClienteKeyReleased
+
+    private void jTextFieldPesquisaPorClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPesquisaPorClienteKeyPressed
+        this.controller.PesquisarPorCliente();
+    }//GEN-LAST:event_jTextFieldPesquisaPorClienteKeyPressed
 
     /**
      * @param args the command line arguments

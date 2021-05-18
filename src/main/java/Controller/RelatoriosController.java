@@ -13,6 +13,10 @@ import View.FrmRelatorios;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -195,6 +199,14 @@ public class RelatoriosController {
         mes[11] = 31;
 
         return mes[month - 1];
+    }
+
+    public void PesquisarPorCliente() {
+        DefaultTableModel tm = this.helper.pegaTableModel();
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<>(tm);
+        this.helper.setaRowSorter(tr);
+  
+        
     }
 
 }

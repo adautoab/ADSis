@@ -51,7 +51,6 @@ public class FrmAnuncios extends javax.swing.JFrame {
         jPanelBotoes = new javax.swing.JPanel();
         jButtonSalvar = new javax.swing.JButton();
         jButtonNovo = new javax.swing.JButton();
-        jButtonExcluir = new javax.swing.JButton();
         jComboBoxCliente = new javax.swing.JComboBox<>();
         jFormattedTextFieldDataInicio = new javax.swing.JFormattedTextField();
         jFormattedTextFieldDataTermino = new javax.swing.JFormattedTextField();
@@ -90,8 +89,6 @@ public class FrmAnuncios extends javax.swing.JFrame {
             }
         });
 
-        jButtonExcluir.setText("Excluir");
-
         javax.swing.GroupLayout jPanelBotoesLayout = new javax.swing.GroupLayout(jPanelBotoes);
         jPanelBotoes.setLayout(jPanelBotoesLayout);
         jPanelBotoesLayout.setHorizontalGroup(
@@ -101,9 +98,7 @@ public class FrmAnuncios extends javax.swing.JFrame {
                 .addComponent(jButtonSalvar)
                 .addGap(48, 48, 48)
                 .addComponent(jButtonNovo)
-                .addGap(67, 67, 67)
-                .addComponent(jButtonExcluir)
-                .addContainerGap(141, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelBotoesLayout.setVerticalGroup(
             jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,10 +106,11 @@ public class FrmAnuncios extends javax.swing.JFrame {
                 .addContainerGap(34, Short.MAX_VALUE)
                 .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSalvar)
-                    .addComponent(jButtonNovo)
-                    .addComponent(jButtonExcluir))
+                    .addComponent(jButtonNovo))
                 .addGap(20, 20, 20))
         );
+
+        jComboBoxCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         try {
             jFormattedTextFieldDataInicio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -187,7 +183,7 @@ public class FrmAnuncios extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jListPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jTextFieldPesquisa, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 131, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -291,7 +287,6 @@ public class FrmAnuncios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonExcluir;
     private javax.swing.JButton jButtonNovo;
     private javax.swing.JButton jButtonSalvar;
     private javax.swing.JComboBox<String> jComboBoxCliente;

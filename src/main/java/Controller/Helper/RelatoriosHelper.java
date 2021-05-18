@@ -8,7 +8,9 @@ package Controller.Helper;
 import Model.Anuncio;
 import View.FrmRelatorios;
 import java.util.List;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -60,6 +62,21 @@ public class RelatoriosHelper {
         view.getjTextFieldQtdeMaxCliques().setText(cliques+"");
         view.getjTextFieldQtdeMaxCompatilhamentos().setText(compartilhamentos+"");
         view.getjTextFieldQtdeMaxVisualizacoes().setText(visualizacoes+"");
+    }
+
+    public String ObterString() {
+        return view.getjTextFieldPesquisaPorCliente().getText();
+    }
+
+    public DefaultTableModel pegaTableModel() {
+        return (DefaultTableModel) view.getjTableAnuncios().getModel();
+    }
+
+    public void setaRowSorter(TableRowSorter<DefaultTableModel> tr) {
+        view.getjTableAnuncios().setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter("(?i)"+view.getjTextFieldPesquisaPorCliente().getText().trim()));
+        
+        
     }
 
 }

@@ -40,7 +40,6 @@ public class FrmClientes extends javax.swing.JFrame {
         jPanelBotoes = new javax.swing.JPanel();
         jButtonSalvar = new javax.swing.JButton();
         jButtonNovo = new javax.swing.JButton();
-        jButtonExcluir = new javax.swing.JButton();
         jLabelID = new javax.swing.JLabel();
         jLabelNome = new javax.swing.JLabel();
         jLabelEmail = new javax.swing.JLabel();
@@ -68,8 +67,6 @@ public class FrmClientes extends javax.swing.JFrame {
             }
         });
 
-        jButtonExcluir.setText("Excluir");
-
         javax.swing.GroupLayout jPanelBotoesLayout = new javax.swing.GroupLayout(jPanelBotoes);
         jPanelBotoes.setLayout(jPanelBotoesLayout);
         jPanelBotoesLayout.setHorizontalGroup(
@@ -79,9 +76,7 @@ public class FrmClientes extends javax.swing.JFrame {
                 .addComponent(jButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonExcluir)
-                .addContainerGap(213, Short.MAX_VALUE))
+                .addContainerGap(286, Short.MAX_VALUE))
         );
         jPanelBotoesLayout.setVerticalGroup(
             jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,8 +84,7 @@ public class FrmClientes extends javax.swing.JFrame {
                 .addContainerGap(40, Short.MAX_VALUE)
                 .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSalvar)
-                    .addComponent(jButtonNovo)
-                    .addComponent(jButtonExcluir))
+                    .addComponent(jButtonNovo))
                 .addContainerGap())
         );
 
@@ -254,7 +248,6 @@ public class FrmClientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonExcluir;
     private javax.swing.JButton jButtonNovo;
     private javax.swing.JButton jButtonSalvar;
     private javax.swing.JLabel jLabel1;

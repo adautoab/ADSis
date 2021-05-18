@@ -61,6 +61,7 @@ public class AnunciosHelper implements IHelper {
         this.view.getjFormattedTextFieldDataInicio().setText("");
         this.view.getjFormattedTextFieldDataTermino().setText("");
         this.view.getjTextFieldInvestimento().setText("");
+        this.view.getjComboBoxCliente().removeAllItems();
  
     }
 
@@ -76,6 +77,7 @@ public class AnunciosHelper implements IHelper {
     }
 
     private Cliente obterCliente() {
+        view.getjComboBoxCliente().updateUI();
         return (Cliente) view.getjComboBoxCliente().getSelectedItem();
     }
 
