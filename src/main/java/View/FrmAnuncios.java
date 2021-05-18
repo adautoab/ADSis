@@ -59,7 +59,7 @@ public class FrmAnuncios extends javax.swing.JFrame {
         jListPesquisa = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro de Anúcnios");
+        setTitle("Cadastro de Anúncios");
 
         jLabelId.setText("ID");
 

@@ -71,8 +71,7 @@ public class RelatoriosController {
         int dias = getDaysOfInterval(dInicio, dFim);
         Double valorTotal = anuncio.getInvestimento()*dias;
 
-        System.out.println("Dias: " + dias);
-        System.out.println("Valor total investido: " + valorTotal);
+
         
         int cliques = new Calculadora(valorTotal).getCliquesTotal();
         int visualizacoes = new Calculadora(valorTotal).getVisualizacoesTotal();
@@ -80,9 +79,7 @@ public class RelatoriosController {
         
         this.helper.exibeResultado(dias, valorTotal, cliques, compartilhamentos, visualizacoes);
         
-        System.out.println("Cliques: " + cliques);
-        System.out.println("Visualizacoes: " + visualizacoes);    
-        System.out.println("compartilhamentos: " + compartilhamentos); 
+
         
         
     }
