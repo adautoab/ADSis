@@ -79,6 +79,8 @@ public class FrmRelatorios extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTableAnuncios.setName(""); // NOI18N
+        jTableAnuncios.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jTableAnuncios.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jTableAnuncios);
 
@@ -127,25 +129,19 @@ public class FrmRelatorios extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelQtdeMaxCliques)
+                            .addComponent(jLabelQtdeMaxCompartilhamentos)
+                            .addComponent(jLabelQtdeMaxVisualizacoes)
+                            .addComponent(jLabelValorTotalInvestido)
+                            .addComponent(jLabelDiasTotais))
+                        .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelQtdeMaxCliques)
-                                    .addComponent(jLabelQtdeMaxCompartilhamentos))
-                                .addGap(14, 14, 14)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldQtdeMaxCliques, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldQtdeMaxCompatilhamentos)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelQtdeMaxVisualizacoes)
-                                    .addComponent(jLabelValorTotalInvestido)
-                                    .addComponent(jLabelDiasTotais))
-                                .addGap(42, 42, 42)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldQtdeMaxVisualizacoes)
-                                    .addComponent(jTextFieldValorTotalInvestido, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldDiasTotais)))))
+                            .addComponent(jTextFieldQtdeMaxCliques)
+                            .addComponent(jTextFieldQtdeMaxCompatilhamentos)
+                            .addComponent(jTextFieldQtdeMaxVisualizacoes)
+                            .addComponent(jTextFieldValorTotalInvestido)
+                            .addComponent(jTextFieldDiasTotais, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabelPesquisaPorCliente)
@@ -194,7 +190,7 @@ public class FrmRelatorios extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldPesquisaPorClienteKeyReleased
 
     private void jTextFieldPesquisaPorClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPesquisaPorClienteKeyPressed
-        this.controller.PesquisarPorCliente();
+
     }//GEN-LAST:event_jTextFieldPesquisaPorClienteKeyPressed
 
     /**
