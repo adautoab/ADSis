@@ -60,6 +60,7 @@ public class FrmRelatorios extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Relatórios");
 
+        jTableAnuncios.setBackground(new java.awt.Color(204, 255, 255));
         jTableAnuncios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -68,7 +69,7 @@ public class FrmRelatorios extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Nome do Anúncio", "Cliente", "Data Início", "Data Térmico", "Valor por dia"
+                "ID", "Nome do Anúncio", "Cliente", "Data Início", "Data Término", "Valor por dia"
             }
         ) {
             boolean[] canEdit = new boolean [] {

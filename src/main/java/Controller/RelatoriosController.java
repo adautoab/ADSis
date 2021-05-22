@@ -62,9 +62,6 @@ public class RelatoriosController {
         em.getTransaction().commit();
         em.close();
 
-        System.out.println("Id: " + anuncio.getId());
-        System.out.println("Nome: " + anuncio.getNome());
-
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         String dInicio = sdf.format(anuncio.getDataInicio());
         String dFim = sdf.format(anuncio.getDataFim());
